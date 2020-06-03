@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const RoomMessageEditorDiv = styled.div`
+const EditorDiv = styled.div`
   position: relative;
   width: 100%;
   height: 100px;
@@ -37,10 +37,10 @@ const RoomMessageEditorDiv = styled.div`
   justify-content: flex-start;
 `;
 
-export const RoomMessageEditor: React.FC = () => {
+export const TextEditor: React.FC = () => {
   const classes = useStyles();
   return (
-    <RoomMessageEditorDiv>
+    <EditorDiv>
       <TextField
         className={classes.textField}
         multiline
@@ -57,6 +57,6 @@ export const RoomMessageEditor: React.FC = () => {
         endIcon={<SendIcon />}>
         Send
       </Button>
-    </RoomMessageEditorDiv>
+    </EditorDiv>
   );
 };

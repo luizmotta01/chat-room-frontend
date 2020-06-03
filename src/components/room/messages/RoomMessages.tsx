@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { useSelector } from "../../store/Store";
+import { useSelector } from "../../../store/Store";
 import { RoomMessage } from "./RoomMessage";
 import { Guid } from "guid-typescript";
-import { IMessage } from "../../store/State";
+import { IMessage } from "../../../store/State";
 
 const RoomMessagesDiv = styled.div`
   overflow-y: "auto";

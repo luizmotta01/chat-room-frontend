@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Typography } from "@material-ui/core";
-import { useSelector } from "../../store/Store";
+import { useSelector } from "../../../store/Store";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme: Theme) =>

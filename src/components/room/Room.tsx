@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { RoomHeader } from "./RoomHeader";
-import { RoomMessages } from "./RoomMessages";
-import { RoomMessageEditor } from "./RoomMessageEditor";
+import { RoomHeader } from "./header/RoomHeader";
+import { RoomMessages } from "./messages/RoomMessages";
+import { TextEditor } from "./text-editor/TextEditor";
 
 const RoomDiv = styled.div`
   margin: 10px 15px 10px 5px;
@@ -17,7 +17,7 @@ export const Room: React.FC = () => {
     <RoomDiv>
       <RoomHeader />
       <RoomMessages />
-      <RoomMessageEditor />
+      <TextEditor />
     </RoomDiv>
   );
 };

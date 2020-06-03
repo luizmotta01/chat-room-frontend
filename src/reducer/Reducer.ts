@@ -1,5 +1,6 @@
 import { IState } from "../store/State";
 import { ActionTypes, ActionType } from "../actions/ActionTypes";
+import { appendMessageToRoom } from "../actions/AppendMessageToRoom";
 
 export const reducer = (state: IState, action: ActionTypes): IState => {
   switch (action.type) {
@@ -8,6 +9,10 @@ export const reducer = (state: IState, action: ActionTypes): IState => {
     }
     case ActionType.SetCurrentRoom: {
       return { ...state, currentRoom: action.payload };
+    }
+    case ActionType.AppendMessageToRoom: {
+      const { message, room } = action.payload;
+      return { ...state, currentRoom: appendMessageToRoom(message, room) };
     }
   }
 };

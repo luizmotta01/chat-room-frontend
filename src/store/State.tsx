@@ -33,7 +33,7 @@ export interface IMessage {
 const userId = Guid.create();
 const user = {
   id: userId,
-  username: "motta",
+  username: "",
 };
 
 const user2 = {
@@ -48,7 +48,7 @@ export const initialState: IState = {
     members: [],
     roomType: RoomType.Group,
     messages: [
-      { from: user, sent: new Date(), text: "Hello!" },
+      // { from: user, sent: new Date(), text: "Hello!" },
       {
         from: user2,
         sent: new Date(),

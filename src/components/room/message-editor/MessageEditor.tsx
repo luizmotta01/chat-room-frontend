@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import TextField from "@material-ui/core/TextField";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import SendIcon from "@material-ui/icons/Send";
+import { useChatRoomContext } from "../../../store/Store";
+import { ActionType } from "../../../actions/ActionTypes";
+import { IMessage, IRoom } from "../../../store/State";
+import { SendButton } from "./SendButton";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -39,6 +41,18 @@ const EditorDiv = styled.div`
 
 export const TextEditor: React.FC = () => {
   const classes = useStyles();
+  const { state, dispatch } = useChatRoomContext();
+  const [message, setMessage] = useState("");
+  const { currentRoom, user } = state;
+
+  const dispatchMessage = (message: IMessage, room: IRoom) => {
+    dispatch({
+      type: ActionType.AppendMessageToRoom,
+      payload: { message, room },
+    });
+    setMessage("");
+  };
+
   return (
     <EditorDiv>
       <TextField
@@ -47,16 +61,19 @@ export const TextEditor: React.FC = () => {
         variant="outlined"
         rowsMax={2}
         rows={2}
+        value={message}
         inputProps={{ className: classes.input }}
-        onKeyPress={(e) => console.log(e.key)}
+        onChange={(event) => setMessage(event.target.value)}
+        onKeyPress={() => {}}
       />
-      <Button
-        variant="contained"
-        size="large"
-        className={classes.button}
-        endIcon={<SendIcon />}>
-        Send
-      </Button>
+      <SendButton
+        onClick={() =>
+          dispatchMessage(
+            { from: user, sent: new Date(), text: message },
+            currentRoom
+          )
+        }
+      />
     </EditorDiv>
   );
 };

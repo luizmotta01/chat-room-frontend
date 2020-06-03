@@ -1,8 +1,10 @@
 import { IUser, IRoom } from "../store/State";
+import { IMessage } from "./../store/State";
 
 export enum ActionType {
   SetUser = "SetUser",
   SetCurrentRoom = "SetCurrentRoom",
+  AppendMessageToRoom = "AppendMessageToRoom",
 }
 
 export interface ISetUser {
@@ -15,4 +17,12 @@ export interface ISetCurrentRoom {
   payload: IRoom;
 }
 
-export type ActionTypes = ISetUser | ISetCurrentRoom;
+export interface IAppendMessageToRoom {
+  type: ActionType.AppendMessageToRoom;
+  payload: {
+    message: IMessage;
+    room: IRoom;
+  };
+}
+
+export type ActionTypes = ISetUser | ISetCurrentRoom | IAppendMessageToRoom;

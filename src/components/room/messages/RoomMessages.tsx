@@ -21,6 +21,8 @@ const RoomMessagesDiv = styled.div`
 
 export const RoomMessages: React.FC = () => {
   const messages = useSelector(({ currentRoom }) => currentRoom.messages);
+  const user = useSelector(({ user }) => user);
+  if (user.username === "") return null;
 
   return (
     <RoomMessagesDiv>

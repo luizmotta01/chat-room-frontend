@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { IMessage } from "../../../store/State";
-import { useSelector } from "../../../store/Store";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { MessageText } from "./MessageText";
 import { MessageHeader } from "./MessageHeader";

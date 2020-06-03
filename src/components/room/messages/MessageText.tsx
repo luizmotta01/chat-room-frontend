@@ -8,8 +8,8 @@ export const MessageText: React.FC<IMessageTextProperties> = (props) => {
   const classes = useStyles();
   const { text } = props;
   return (
-    <Typography className={classes.text} variant="body2">
-      <pre style={{ fontFamily: "inherit", margin: "0px" }}>{text}</pre>
+    <Typography className={classes.text} variant="body2" component="pre">
+      {text}
     </Typography>
   );
 };

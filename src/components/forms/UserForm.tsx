@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import { useChatRoomContext } from "./../store/Store";
-import { ActionType } from "../actions/ActionTypes";
+import { useChatRoomContext } from "../../store/Store";
+import { ActionType } from "../../actions/ActionTypes";
 import { useHistory } from "react-router-dom";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { Guid } from "guid-typescript";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -35,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const UserFormDiv = styled.div`
-  background-color: #8858f6;
+  background-color: #6340b2;
   border: 4px solid #fff;
   border-radius: 10px;
   justify-content: center;
@@ -80,6 +81,7 @@ export const UserForm: React.FC = () => {
           dispatch({
             type: ActionType.SetUser,
             payload: {
+              id: Guid.create(),
               username,
             },
           });

@@ -6,5 +6,8 @@ export const reducer = (state: IState, action: ActionTypes): IState => {
     case ActionType.SetUser: {
       return { ...state, user: action.payload };
     }
+    case ActionType.SetCurrentRoom: {
+      return { ...state, currentRoom: action.payload };
+    }
   }
 };

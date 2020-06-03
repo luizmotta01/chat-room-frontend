@@ -1,7 +1,8 @@
-import { IUser } from "../store/State";
+import { IUser, IRoom } from "../store/State";
 
 export enum ActionType {
   SetUser = "SetUser",
+  SetCurrentRoom = "SetCurrentRoom",
 }
 
 export interface ISetUser {
@@ -9,4 +10,9 @@ export interface ISetUser {
   payload: IUser;
 }
 
-export type ActionTypes = ISetUser;
+export interface ISetCurrentRoom {
+  type: ActionType.SetCurrentRoom;
+  payload: IRoom;
+}
+
+export type ActionTypes = ISetUser | ISetCurrentRoom;

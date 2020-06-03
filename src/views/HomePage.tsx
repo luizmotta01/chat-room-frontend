@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { UserForm } from "../components/UserForm";
+import { UserForm } from "../components/forms/UserForm";
 
 const HomeDiv = styled.div`
   width: 100%;

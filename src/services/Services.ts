@@ -1,6 +1,10 @@
 import axios from "axios";
 import endpoints from "../chatroom-config.json";
-import { IUserModel, IRegistrationResponse } from "./../models/UserModel";
+import {
+  IUserModel,
+  IRegistrationResponse,
+  IAuthenticationModel,
+} from "../models/Models";
 
 export const registration = async (
   userModel: IUserModel
@@ -9,6 +13,7 @@ export const registration = async (
   return data as IRegistrationResponse;
 };
 
-export const login = (userModel: IUserModel) => {
-  console.log(endpoints);
+export const login = async (userModel: IUserModel) => {
+  const { data } = await axios.post(endpoints.authentication, userModel);
+  return data as IAuthenticationModel;
 };

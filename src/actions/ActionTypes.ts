@@ -1,10 +1,12 @@
+import { IAuthenticatedUser } from "../store/State";
+
 export enum ActionType {
-  Dummy = "Dummy",
+  SetAuthenticatedUser = "SetAuthenticatedUser",
 }
 
-export interface IDummy {
-  type: ActionType.Dummy;
-  payload: any;
+export interface ISetAuthenticatedUser {
+  type: ActionType.SetAuthenticatedUser;
+  payload: IAuthenticatedUser;
 }
 
-export type ActionTypes = IDummy;
+export type ActionTypes = ISetAuthenticatedUser;

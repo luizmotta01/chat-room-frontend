@@ -5,7 +5,7 @@ import { AccessButton } from "../common/AccessButton";
 import { registration } from "../../../services/Services";
 import { useHistory } from "react-router-dom";
 import { notifySuccess } from "../../notifications/Notifications";
-import { IUserModel } from "./../../../models/UserModel";
+import { IUserModel } from "../../../models/Models";
 
 const FormContainer = styled.div`
   width: 100%;

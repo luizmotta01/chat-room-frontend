@@ -11,3 +11,10 @@ export interface IRegistrationResponse {
   statusCode: number;
   messages: string[];
 }
+
+export interface IAuthenticationModel {
+  id: string;
+  username: string;
+  jwtToken: string;
+  refreshToken: string;
+}

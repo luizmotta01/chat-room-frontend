@@ -4,6 +4,7 @@ import Store from "./store/Store";
 import { HomePage } from "./views/HomePage";
 import { ChatPage } from "./views/ChatPage";
 import { DefaultTheme } from "./theme/DefaultTheme";
+import { LoginPage } from "./views/LoginPage";
 
 const ChatRoom: React.FC = () => {
   return (
@@ -11,11 +12,11 @@ const ChatRoom: React.FC = () => {
       <Store>
         <Router>
           <Switch>
-            <Route path="/chat">
-              <ChatPage />
+            <Route path="/login">
+              <LoginPage />
             </Route>
             <Route path="/">
-              <HomePage />
+              <LoginPage />
             </Route>
           </Switch>
         </Router>

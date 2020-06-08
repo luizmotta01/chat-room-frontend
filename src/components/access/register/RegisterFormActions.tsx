@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { ForgotPassword } from "./ForgotPassword";
-import { Register } from "./Register";
+import { ForgotPassword } from "../common/ForgotPassword";
+import { SignIn } from "../login/SignIn";
 
 const ActionsDiv = styled.div`
   display: flex;
@@ -13,10 +13,10 @@ const ActionsDiv = styled.div`
   align-items: center;
 `;
 
-export const LoginFormActions: React.FC = () => {
+export const RegisterFormActions: React.FC = () => {
   return (
     <ActionsDiv>
-      <Register />
+      <SignIn />
       <ForgotPassword />
     </ActionsDiv>
   );

@@ -3,8 +3,9 @@ import styled from "styled-components";
 import { TextField } from "@material-ui/core";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 
-export interface ILoginFormInputProperties {
+export interface IAccessFormInputProperties {
   label: string;
+  type: "text" | "email" | "password";
   onChange: () => void;
 }
 
@@ -17,13 +18,14 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export const LoginFormInput: React.FC<ILoginFormInputProperties> = (props) => {
-  const { label, onChange } = props;
+export const AccessInput: React.FC<IAccessFormInputProperties> = (props) => {
+  const { label, type, onChange } = props;
   const classes = useStyles();
   return (
     <TextField
       label={label}
       fullWidth
+      type={type}
       variant="filled"
       margin="normal"
       color="secondary"

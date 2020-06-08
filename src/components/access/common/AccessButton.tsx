@@ -8,12 +8,13 @@ const ButtonDiv = styled.div`
   margin: 10px 0px;
 `;
 
-export interface ILoginButtonProperties {
+export interface IAccessButtonProperties {
+  label: string;
   onClick: () => void;
 }
 
-export const LoginButton: React.FC<ILoginButtonProperties> = (props) => {
-  const { onClick } = props;
+export const AccessButton: React.FC<IAccessButtonProperties> = (props) => {
+  const { label, onClick } = props;
 
   return (
     <ButtonDiv>
@@ -22,7 +23,7 @@ export const LoginButton: React.FC<ILoginButtonProperties> = (props) => {
         style={{ width: "100%" }}
         color="secondary"
         onClick={onClick}>
-        Login
+        {label}
       </Button>
     </ButtonDiv>
   );

@@ -1,10 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Store from "./store/Store";
-import { HomePage } from "./views/HomePage";
-import { ChatPage } from "./views/ChatPage";
 import { DefaultTheme } from "./theme/DefaultTheme";
 import { LoginPage } from "./views/LoginPage";
+import { RegisterPage } from "./views/RegisterPage";
 
 const ChatRoom: React.FC = () => {
   return (
@@ -14,6 +13,9 @@ const ChatRoom: React.FC = () => {
           <Switch>
             <Route path="/login">
               <LoginPage />
+            </Route>
+            <Route path="/register">
+              <RegisterPage />
             </Route>
             <Route path="/">
               <LoginPage />

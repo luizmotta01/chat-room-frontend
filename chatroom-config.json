@@ -1,0 +1,6 @@
+{
+  "registration": "https://localhost:5101/api/registration",
+  "authentication": "https://localhost:5101/api/authenticate",
+  "contacts": "https://localhost:5101/api/contacts",
+  "hub": ""
+}

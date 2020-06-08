@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { LoginFormInput } from "./LoginFormInput";
-import { LoginButton } from "./LoginButton";
+import { AccessInput } from "../common/AccessInput";
+import { AccessButton } from "../common/AccessButton";
 
 const FormContainer = styled.div`
   width: 100%;
@@ -23,13 +23,14 @@ const FormGroup = styled.form`
 
 const textOnChange = () => {};
 
-export const LoginForm: React.FC = () => {
+export const RegisterForm: React.FC = () => {
   return (
     <FormContainer>
       <FormGroup>
-        <LoginFormInput label="Username" onChange={textOnChange} />
-        <LoginFormInput label="Password" onChange={textOnChange} />
-        <LoginButton onClick={() => {}} />
+        <AccessInput label="Email" type="email" onChange={textOnChange} />
+        <AccessInput label="Username" type="text" onChange={textOnChange} />
+        <AccessInput label="Password" type="password" onChange={textOnChange} />
+        <AccessButton onClick={() => {}} label="Register" />
       </FormGroup>
     </FormContainer>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Typography } from "@material-ui/core";
 
-const FormTitleDiv = styled.div`
+const RegisterDiv = styled.div`
   width: 100%;
   height: auto;
   justify-content: center;
@@ -11,15 +11,16 @@ const FormTitleDiv = styled.div`
   flex-direction: column;
 `;
 
-export const LoginFormTitle: React.FC = () => {
+export const SignUp: React.FC = () => {
   return (
-    <FormTitleDiv>
-      <Typography variant="h3" color="secondary">
-        Motta
+    <RegisterDiv>
+      <Typography
+        variant="button"
+        color="secondary"
+        component="a"
+        href="/register">
+        Sign up!
       </Typography>
-      <Typography variant="h4" color="secondary">
-        Chat Room
-      </Typography>
-    </FormTitleDiv>
+    </RegisterDiv>
   );
 };

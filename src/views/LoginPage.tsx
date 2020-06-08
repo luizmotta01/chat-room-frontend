@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { LoginContainer } from "../components/login/LoginContainer";
+import { AccessContainer } from "../components/access/common/AccessContainer";
+import { LoginForm } from "../components/access/login/LoginForm";
+import { LoginFormActions } from "../components/access/login/LoginFormActions";
 
 const LoginPageDiv = styled.div`
   width: 100%;
@@ -21,7 +23,10 @@ export const LoginPage: React.FC = () => {
   return (
     <LoginPageDiv>
       <LoginFormDiv>
-        <LoginContainer />
+        <AccessContainer
+          form={<LoginForm />}
+          formActions={<LoginFormActions />}
+        />
       </LoginFormDiv>
     </LoginPageDiv>
   );

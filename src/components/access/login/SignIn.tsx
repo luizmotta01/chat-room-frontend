@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Typography } from "@material-ui/core";
 
-const RegisterDiv = styled.div`
+const SingUpDiv = styled.div`
   width: 100%;
   height: auto;
   justify-content: center;
@@ -11,12 +11,16 @@ const RegisterDiv = styled.div`
   flex-direction: column;
 `;
 
-export const Register: React.FC = () => {
+export const SignIn: React.FC = () => {
   return (
-    <RegisterDiv>
-      <Typography variant="button" color="secondary" component="a" href="/">
-        Sign up!
+    <SingUpDiv>
+      <Typography
+        variant="button"
+        color="secondary"
+        component="a"
+        href="/login">
+        Sign in!
       </Typography>
-    </RegisterDiv>
+    </SingUpDiv>
   );
 };

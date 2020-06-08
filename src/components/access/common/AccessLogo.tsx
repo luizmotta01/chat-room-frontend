@@ -6,7 +6,7 @@ const LogoSvg = styled.svg`
   width: 100%;
   height: 100%;
 `;
-export const LoginFormLogo: React.FC = () => {
+export const AccessLogo: React.FC = () => {
   return (
     <LogoSvg>
       <ForumIcon color="secondary" />

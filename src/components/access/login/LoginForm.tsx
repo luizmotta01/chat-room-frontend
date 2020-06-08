@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { AccessInput } from "../common/AccessInput";
 import { AccessButton } from "../common/AccessButton";
+import { login } from "../../../services/Services";
 
 const FormContainer = styled.div`
   width: 100%;
@@ -24,12 +25,27 @@ const FormGroup = styled.form`
 const textOnChange = () => {};
 
 export const LoginForm: React.FC = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <FormContainer>
       <FormGroup>
-        <AccessInput label="Username" type="text" onChange={textOnChange} />
-        <AccessInput label="Password" type="password" onChange={textOnChange} />
-        <AccessButton onClick={() => {}} label="Login" />
+        <AccessInput
+          label="Username"
+          type="text"
+          onChange={(args) => setUsername(args.target.value)}
+        />
+        <AccessInput
+          label="Password"
+          type="password"
+          onChange={(args) => setPassword(args.target.value)}
+        />
+        <AccessButton
+          onClick={() => {
+            login({ username, password });
+          }}
+          label="Login"
+        />
       </FormGroup>
     </FormContainer>
   );

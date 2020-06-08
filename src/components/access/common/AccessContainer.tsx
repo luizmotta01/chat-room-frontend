@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { AccessLogo } from "./AccessLogo";
 import { AccessTitle } from "./AccessTitle";
-import { LoginFormActions } from "../login/LoginFormActions";
-import { LoginForm } from "../login/LoginForm";
 
 const LoginFormContainer = styled.div`
   width: 100%;

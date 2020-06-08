@@ -6,13 +6,15 @@ import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 export interface IAccessFormInputProperties {
   label: string;
   type: "text" | "email" | "password";
-  onChange: () => void;
+  onChange: (
+    args: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => void;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     input: {
-      color: theme.palette.common.white,
+      color: theme.palette.common.black,
       backgroundColor: theme.palette.common.white,
     },
   })
@@ -28,8 +30,7 @@ export const AccessInput: React.FC<IAccessFormInputProperties> = (props) => {
       type={type}
       variant="filled"
       margin="normal"
-      color="secondary"
-      onChange={onChange}
+      onChange={(args) => onChange(args)}
       InputLabelProps={{
         shrink: true,
       }}

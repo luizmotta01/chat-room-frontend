@@ -6,6 +6,7 @@ import { login } from "../../../services/Services";
 import { useHistory } from "react-router-dom";
 import { useChatRoomContext } from "../../../store/Store";
 import { ActionType } from "../../../actions/ActionTypes";
+import { notifySuccess, notifyError } from "../../notifications/Notifications";
 
 const FormContainer = styled.div`
   width: 100%;
@@ -48,12 +49,16 @@ export const LoginForm: React.FC = () => {
         <AccessButton
           onClick={async () => {
             const response = await login({ username, password });
-            if (response.jwtToken) {
+            console.log(response);
+            if (response.payload?.jwtToken) {
               dispatch({
                 type: ActionType.SetAuthenticatedUser,
-                payload: response,
+                payload: response.payload,
               });
+              response.messages.forEach((message) => notifySuccess(message));
               history.push("/home");
+            } else {
+              response.messages.forEach((message) => notifyError(message));
             }
           }}
           label="Login"

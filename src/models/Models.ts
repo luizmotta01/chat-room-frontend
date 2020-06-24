@@ -4,17 +4,25 @@ export interface IUserModel {
   password: string;
 }
 
-export interface IRegistrationResponse {
-  payload: {
-    registered: boolean;
-  };
-  statusCode: number;
-  messages: string[];
+export interface IRegistrationRequest {
+  email: string;
+  username: string;
+  password: string;
+  agreement: boolean;
 }
 
-export interface IAuthenticationModel {
-  id: string;
-  username: string;
-  jwtToken: string;
-  refreshToken: string;
+export interface IRegistrationResponse extends IResponse {}
+
+export interface IAuthenticationResponse extends IResponse {
+  payload?: {
+    id: string;
+    username: string;
+    jwtToken: string;
+    refreshToken: string;
+  };
+}
+
+export interface IResponse {
+  statusCode: number;
+  messages: string[];
 }

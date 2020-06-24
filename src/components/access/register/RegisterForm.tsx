@@ -4,8 +4,9 @@ import { AccessInput } from "../common/AccessInput";
 import { AccessButton } from "../common/AccessButton";
 import { registration } from "../../../services/Services";
 import { useHistory } from "react-router-dom";
-import { notifySuccess } from "../../notifications/Notifications";
-import { IUserModel } from "../../../models/Models";
+import { notifySuccess, notifyError } from "../../notifications/Notifications";
+import { IUserModel, IRegistrationRequest } from "../../../models/Models";
+import { Agreement } from "./Agreement";
 
 const FormContainer = styled.div`
   width: 100%;
@@ -29,15 +30,21 @@ export const RegisterForm: React.FC = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const [checked, setChecked] = useState(false);
   const history = useHistory();
 
-  const handleRegister = async (userModel: IUserModel) => {
-    const response = await registration(userModel);
+  const handleRegister = async (request: IRegistrationRequest) => {
+    const response = await registration(request);
     if (response.statusCode === 201) {
-      notifySuccess(`${userModel.username} registerd at Motta Chat Room!`);
+      response.messages.forEach((message) => notifySuccess(message));
       history.push("/login");
+    } else {
+      response.messages.forEach((message) => notifyError(message));
     }
+  };
+
+  const handleAgreementCheck = () => {
+    setChecked((prevState) => !prevState);
   };
 
   return (
@@ -58,8 +65,11 @@ export const RegisterForm: React.FC = () => {
           type="password"
           onChange={(args) => setPassword(args.target.value)}
         />
+        <Agreement checked={checked} onChange={handleAgreementCheck} />
         <AccessButton
-          onClick={() => handleRegister({ username, email, password })}
+          onClick={() =>
+            handleRegister({ username, email, password, agreement: checked })
+          }
           label="Register"
         />
       </FormGroup>

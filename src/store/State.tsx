@@ -11,4 +11,11 @@ export interface IAuthenticatedUser {
   refreshToken: string;
 }
 
-export const initialState: IState = {};
+export const initialState: IState = {
+  user: {
+    id: Guid.create().toString(),
+    username: "Motta",
+    jwtToken: "12312423dsffjdiosjfs",
+    refreshToken: "12312423dsffjdiosjfs",
+  },
+};

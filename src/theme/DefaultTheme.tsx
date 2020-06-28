@@ -12,14 +12,18 @@ export const defaultTheme = createMuiTheme({
     primary: {
       light: "#EBF2EF",
       main: "#343b4a",
-      dark: "#343b4a",
+      dark: "#001738",
       contrastText: "#fff",
     },
     secondary: {
-      light: "##D19901",
+      light: "#D19901",
       main: "#d16c00",
       dark: "#d16c00",
       contrastText: "#000",
+    },
+    text: {
+      primary: "#fff",
+      secondary: "#000",
     },
   },
 });

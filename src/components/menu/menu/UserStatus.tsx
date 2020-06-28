@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { AvatarWithStatus } from "../avatars/AvatarWithStatus";
+import { AvatarWithStatus } from "../avatar/AvatarWithStatus";
 import {
   Typography,
   List,

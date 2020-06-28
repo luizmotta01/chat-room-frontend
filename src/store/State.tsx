@@ -2,6 +2,14 @@ import { Guid } from "guid-typescript";
 
 export interface IState {
   user?: IAuthenticatedUser;
+  contacts?: IContact[];
+}
+
+export enum Status {
+  Available = "Available",
+  Busy = "Busy",
+  Away = "Away",
+  Offline = "Offline",
 }
 
 export interface IAuthenticatedUser {
@@ -11,6 +19,11 @@ export interface IAuthenticatedUser {
   refreshToken: string;
 }
 
+export interface IContact {
+  username: string;
+  status: Status;
+}
+
 export const initialState: IState = {
   user: {
     id: Guid.create().toString(),
@@ -18,4 +31,5 @@ export const initialState: IState = {
     jwtToken: "12312423dsffjdiosjfs",
     refreshToken: "12312423dsffjdiosjfs",
   },
+  contacts: [{ username: "", status: Status.Available }],
 };

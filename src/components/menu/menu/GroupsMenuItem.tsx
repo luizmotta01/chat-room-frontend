@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 import { MenuItemText } from "./MenuItemText";
+import { GroupsIcon } from "../icons/GroupsIcon";
 
-export interface IMenuItemProperties {
+export interface IGroupsMenuItemProperties {
   expand: boolean;
-  text: string;
 }
 
-const MenuItemDiv = styled.div`
+const GroupsMenuItemDiv = styled.div`
   width: 100%;
   height: auto;
   display: flex;
@@ -21,10 +21,11 @@ const MenuItemDiv = styled.div`
   }
 `;
 
-export const MenuItem: React.FC<IMenuItemProperties> = (props) => {
-  const { expand, text, children } = props;
+export const GroupsMenuItem: React.FC<IGroupsMenuItemProperties> = (props) => {
+  const { expand } = props;
+
   return (
-    <MenuItemDiv>
+    <GroupsMenuItemDiv>
       <Grid
         container
         spacing={0}
@@ -32,12 +33,12 @@ export const MenuItem: React.FC<IMenuItemProperties> = (props) => {
         justify={expand ? "space-around" : "center"}
         alignItems="center">
         <Grid item xs={expand ? 1 : 3}>
-          {children}
+          <GroupsIcon />
         </Grid>
         <Grid item xs={expand ? 3 : 1}>
-          {expand && <MenuItemText text={text} />}
+          {expand && <MenuItemText text={"Groups"} />}
         </Grid>
       </Grid>
-    </MenuItemDiv>
+    </GroupsMenuItemDiv>
   );
 };

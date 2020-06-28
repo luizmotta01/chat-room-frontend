@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 import { MenuItemText } from "./MenuItemText";
+import { ContactIcon } from "../icons/ContactIcon";
 
-export interface IMenuItemProperties {
+export interface IContactsMenuItemProperties {
   expand: boolean;
-  text: string;
 }
 
-const MenuItemDiv = styled.div`
+const ContactsMenuItemDiv = styled.div`
   width: 100%;
   height: auto;
   display: flex;
@@ -21,10 +21,12 @@ const MenuItemDiv = styled.div`
   }
 `;
 
-export const MenuItem: React.FC<IMenuItemProperties> = (props) => {
-  const { expand, text, children } = props;
+export const ContactsMenuItem: React.FC<IContactsMenuItemProperties> = (
+  props
+) => {
+  const { expand } = props;
   return (
-    <MenuItemDiv>
+    <ContactsMenuItemDiv>
       <Grid
         container
         spacing={0}
@@ -32,12 +34,12 @@ export const MenuItem: React.FC<IMenuItemProperties> = (props) => {
         justify={expand ? "space-around" : "center"}
         alignItems="center">
         <Grid item xs={expand ? 1 : 3}>
-          {children}
+          <ContactIcon />
         </Grid>
         <Grid item xs={expand ? 3 : 1}>
-          {expand && <MenuItemText text={text} />}
+          {expand && <MenuItemText text={"Contacts"} />}
         </Grid>
       </Grid>
-    </MenuItemDiv>
+    </ContactsMenuItemDiv>
   );
 };

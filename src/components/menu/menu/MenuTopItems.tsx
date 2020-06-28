@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { MenuItem } from "./MenuItem";
-import { ContactIcon } from "../icons/ContactsIcon";
+import { ContactIcon } from "../icons/ContactIcon";
 import { AddContactIcon } from "../icons/AddContactIcon";
 import { GroupsIcon } from "../icons/GroupsIcon";
+import { ContactsMenuItem } from "./ContactsMenuItem";
+import { GroupsMenuItem } from "./GroupsMenuItem";
 
 const MenuTopItemsDiv = styled.div`
   width: 100%;
@@ -23,8 +25,8 @@ export const MenuTopItems: React.FC<IMenuTopItemsProperties> = (props) => {
   const { expand } = props;
   return (
     <MenuTopItemsDiv>
-      <MenuItem text={"Contacts"} expand={expand} children={<ContactIcon />} />
-      <MenuItem text={"Groups"} expand={expand} children={<GroupsIcon />} />
+      <ContactsMenuItem expand={expand} />
+      <GroupsMenuItem expand={expand} />
     </MenuTopItemsDiv>
   );
 };

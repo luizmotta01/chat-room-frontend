@@ -1,7 +1,12 @@
 import React from "react";
 import Badge from "@material-ui/core/Badge";
 import Avatar from "@material-ui/core/Avatar";
-import { Theme, withStyles, createStyles } from "@material-ui/core/styles";
+import {
+  Theme,
+  withStyles,
+  createStyles,
+  makeStyles,
+} from "@material-ui/core/styles";
 
 const StyledBadge = withStyles((theme: Theme) =>
   createStyles({
@@ -21,6 +26,7 @@ const StyledBadge = withStyles((theme: Theme) =>
         content: '""',
       },
     },
+
     "@keyframes ripple": {
       "0%": {
         transform: "scale(.8)",
@@ -34,6 +40,15 @@ const StyledBadge = withStyles((theme: Theme) =>
   })
 )(Badge);
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    small: {
+      width: theme.spacing(3),
+      height: theme.spacing(3),
+    },
+  })
+);
+
 export interface IAvatarWithStatusProperties {
   text: string;
 }
@@ -42,6 +57,7 @@ export const AvatarWithStatus: React.FC<IAvatarWithStatusProperties> = (
   props
 ) => {
   const { text } = props;
+  const classes = useStyles();
   return (
     <StyledBadge
       overlap="circle"
@@ -50,7 +66,7 @@ export const AvatarWithStatus: React.FC<IAvatarWithStatusProperties> = (
         horizontal: "right",
       }}
       variant="dot">
-      <Avatar alt="Remy Sharp">{text}</Avatar>
+      <Avatar className={classes.small}>{text}</Avatar>
     </StyledBadge>
   );
 };

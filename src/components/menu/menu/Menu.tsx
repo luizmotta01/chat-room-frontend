@@ -7,6 +7,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { UserStatus } from "./UserStatus";
 import { MenuAreas } from "./MenuAreas";
+import { useSelector } from "../../../store/Store";
 
 const drawerWidth = 240;
 
@@ -53,6 +54,7 @@ export const Menu: React.FC = () => {
   const handleDrawerState = () => {
     setOpen((prevState) => !prevState);
   };
+  const username = useSelector(({ user }) => user?.username);
 
   return (
     <Drawer
@@ -77,7 +79,9 @@ export const Menu: React.FC = () => {
           <MenuIcon />
         </IconButton>
       </Toolbar>
-      <UserStatus open={open} onClick={() => {}} />
+      {username && (
+        <UserStatus username={username} expand={open} onClick={() => {}} />
+      )}
       <MenuAreas expand={open} />
     </Drawer>
   );

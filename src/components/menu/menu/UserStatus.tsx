@@ -1,42 +1,40 @@
 import React from "react";
 import styled from "styled-components";
 import { AvatarWithStatus } from "../avatar/AvatarWithStatus";
-import {
-  Typography,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-} from "@material-ui/core";
-import { useSelector } from "../../../store/Store";
+import { Typography, Grid } from "@material-ui/core";
 
 export interface IUserStatusProperties {
-  open: boolean;
+  username: string;
+  expand: boolean;
   onClick: () => void;
 }
 
 const UserStatusDiv = styled.div`
   width: 100%;
   height: auto;
-  justify-content: center;
   display: flex;
+  justify-content: center;
   align-items: center;
-  flex-direction: row;
   padding: 10px 0px;
 `;
 
 export const UserStatus: React.FC<IUserStatusProperties> = (props) => {
-  const { open, onClick } = props;
-  const username = useSelector(({ user }) => user?.username);
-
+  const { username, expand } = props;
   return (
-    <List>
-      <ListItem onClick={onClick}>
-        <ListItemIcon>
+    <UserStatusDiv>
+      <Grid
+        container
+        spacing={0}
+        direction="row"
+        justify={expand ? "space-around" : "center"}
+        alignItems="center">
+        <Grid item xs={expand ? 1 : 3}>
           <AvatarWithStatus text={"M"} />
-        </ListItemIcon>
-        {open && <ListItemText primary={username} />}
-      </ListItem>
-    </List>
+        </Grid>
+        <Grid item xs={expand ? 3 : 1}>
+          {expand && <Typography>{username}</Typography>}
+        </Grid>
+      </Grid>
+    </UserStatusDiv>
   );
 };

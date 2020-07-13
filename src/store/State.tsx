@@ -31,13 +31,5 @@ export const initialState: IState = {
     jwtToken: "12312423dsffjdiosjfs",
     refreshToken: "12312423dsffjdiosjfs",
   },
-  contacts: [
-    { username: "user0101", status: Status.Available },
-    { username: "user0101", status: Status.Available },
-    { username: "user0101", status: Status.Available },
-    { username: "user0101", status: Status.Available },
-    { username: "user0101", status: Status.Available },
-    { username: "user0101", status: Status.Available },
-    { username: "user0101", status: Status.Available },
-  ],
+  contacts: [{ username: "user0101", status: Status.Available }],
 };

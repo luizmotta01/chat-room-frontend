@@ -5,7 +5,7 @@ import { AccessButton } from "../common/AccessButton";
 import { registration } from "../../../services/Services";
 import { useHistory } from "react-router-dom";
 import { notifySuccess, notifyError } from "../../notifications/Notifications";
-import { IUserModel, IRegistrationRequest } from "../../../models/Models";
+import { IRegistrationRequest } from "../../../models/Models";
 import { Agreement } from "./Agreement";
 
 const FormContainer = styled.div`

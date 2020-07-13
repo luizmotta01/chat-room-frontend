@@ -26,8 +26,6 @@ const FormGroup = styled.form`
   height: 100%;
 `;
 
-const textOnChange = () => {};
-
 export const LoginForm: React.FC = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
